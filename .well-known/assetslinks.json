@@ -1,0 +1,5 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target" : { "namespace": "android_app", "package_name": "com.boitas.shopperApp",
+               "sha256_cert_fingerprints": ["E1:EB:A7:6E:9E:C2:9E:DC:BD:4B:CF:C1:A9:74:C5:AF:52:0D:3D:06:D7:FF:3E:16:D6:9F:3B:25:1D:79:08:68"] }
+}]
