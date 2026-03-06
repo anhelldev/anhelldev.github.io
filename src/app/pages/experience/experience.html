@@ -1,0 +1,45 @@
+<div class="page">
+  <div class="container">
+
+    <div class="page-header">
+      <p class="page-header__eyebrow">My journey</p>
+      <h1 class="page-header__title">Professional<br>Experience</h1>
+      <p class="page-header__desc">
+        7+ years designing digital products and brands — from early-stage startups to established teams.
+      </p>
+    </div>
+
+    <div class="timeline">
+      @for (item of experiences; track item.company) {
+        <div class="timeline__item" [class.timeline__item--current]="item.current">
+          <div class="timeline__marker">
+            <div class="timeline__dot"></div>
+            <div class="timeline__line"></div>
+          </div>
+          <div class="timeline__card">
+            @if (item.current) {
+              <span class="badge">Current</span>
+            }
+            <div class="timeline__card-header">
+              <div>
+                <h2 class="timeline__role">{{ item.role }}</h2>
+                <p class="timeline__company">{{ item.company }}</p>
+              </div>
+              <div class="timeline__meta">
+                <span class="timeline__period">{{ item.period }}</span>
+                <span class="timeline__location">{{ item.location }}</span>
+              </div>
+            </div>
+            <p class="timeline__desc">{{ item.description }}</p>
+            <div class="timeline__skills">
+              @for (skill of item.skills; track skill) {
+                <span class="tag">{{ skill }}</span>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+
+  </div>
+</div>

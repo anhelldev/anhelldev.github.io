@@ -1,0 +1,13 @@
+<section class="skills" id="skills">
+  <div class="container">
+    <div class="skills__grid">
+      @for (skill of skills; track skill.title) {
+        <div class="skills__card">
+          <div class="skills__icon" [innerHTML]="skill.icon"></div>
+          <h3 class="skills__title">{{ skill.title }}</h3>
+          <p class="skills__desc">{{ skill.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

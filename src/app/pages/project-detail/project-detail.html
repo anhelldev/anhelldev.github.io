@@ -1,0 +1,132 @@
+@if (project) {
+
+  <!-- Hero -->
+  <div class="hero" [style.background]="project.color">
+    <div class="container">
+      <a class="back-link" routerLink="/projects">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M12.5 5L7.5 10L12.5 15" stroke="#2d2d2d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        All projects
+      </a>
+      <div class="hero__content">
+        <div class="hero__text">
+          <p class="hero__eyebrow">{{ project.year }} · {{ project.role }}</p>
+          <h1 class="hero__title">{{ project.title }}</h1>
+          <p class="hero__subtitle">{{ project.subtitle }}</p>
+          <div class="hero__tags">
+            @for (tag of project.tags; track tag) {
+              <span class="tag">{{ tag }}</span>
+            }
+          </div>
+        </div>
+        <div class="hero__meta">
+          <div class="meta-item">
+            <span class="meta-item__label">Role</span>
+            <span class="meta-item__value">{{ project.role }}</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-item__label">Year</span>
+            <span class="meta-item__value">{{ project.year }}</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-item__label">Duration</span>
+            <span class="meta-item__value">{{ project.duration }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero image placeholder -->
+  <div class="hero-image" [style.background]="project.color">
+    <div class="container">
+      <div class="hero-image__frame"></div>
+    </div>
+  </div>
+
+  <div class="page-body">
+    <div class="container">
+
+      <!-- Overview -->
+      <section class="overview">
+        <p class="section-label">Overview</p>
+        <p class="overview__text">{{ project.description }}</p>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- Challenge & Solution -->
+      <section class="two-col">
+        <div class="two-col__block">
+          <p class="section-label">The Challenge</p>
+          <p class="two-col__text">{{ project.challenge }}</p>
+        </div>
+        <div class="two-col__block">
+          <p class="section-label">The Solution</p>
+          <p class="two-col__text">{{ project.solution }}</p>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- Process -->
+      <section class="process">
+        <p class="section-label">Process</p>
+        <div class="process__grid">
+          @for (step of project.process; track step.label; let i = $index) {
+            <div class="process__step">
+              <span class="process__num">0{{ i + 1 }}</span>
+              <h3 class="process__title">{{ step.label }}</h3>
+              <p class="process__desc">{{ step.desc }}</p>
+            </div>
+          }
+        </div>
+      </section>
+
+      <!-- Process image placeholders -->
+      <div class="gallery">
+        <div class="gallery__main" [style.background]="project.color"></div>
+        <div class="gallery__side">
+          <div class="gallery__sm" [style.background]="project.color"></div>
+          <div class="gallery__sm" [style.background]="project.color"></div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Outcomes -->
+      <section class="outcomes">
+        <p class="section-label">Outcomes</p>
+        <div class="outcomes__grid">
+          @for (item of project.outcomes; track item.label) {
+            <div class="outcomes__item">
+              <span class="outcomes__value">{{ item.value }}</span>
+              <span class="outcomes__label">{{ item.label }}</span>
+            </div>
+          }
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Next project -->
+  @if (nextProject) {
+    <a class="next-project" [routerLink]="['/projects', nextProject.id]" [style.background]="nextProject.color">
+      <div class="container next-project__inner">
+        <div>
+          <p class="next-project__label">Next project</p>
+          <h2 class="next-project__title">{{ nextProject.title }}</h2>
+          <p class="next-project__subtitle">{{ nextProject.subtitle }}</p>
+        </div>
+        <div class="next-project__arrow">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <path d="M8 20H32M32 20L22 10M32 20L22 30" stroke="#2d2d2d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+    </a>
+  }
+
+}

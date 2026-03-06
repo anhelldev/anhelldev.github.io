@@ -1,0 +1,48 @@
+<app-navbar />
+<main>
+  <router-outlet />
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <p>© 2026 anhelldev. All rights reserved.</p>
+    <a routerLink="/">Back to top ↑</a>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid #e0e0e0;
+    padding: 32px 0;
+    font-size: 14px;
+    color: #888;
+  }
+
+  .footer__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .footer__inner a {
+    color: #2d2d2d;
+    font-weight: 600;
+    transition: opacity 0.2s;
+  }
+
+  .footer__inner a:hover {
+    opacity: 0.6;
+  }
+
+  @media (max-width: 600px) {
+    .footer__inner {
+      flex-direction: column;
+      gap: 12px;
+      text-align: center;
+      padding: 0 20px;
+    }
+  }
+</style>

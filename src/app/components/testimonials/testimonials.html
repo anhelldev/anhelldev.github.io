@@ -1,0 +1,24 @@
+<section class="testimonials">
+  <div class="container">
+    <h2 class="section-title">What clients say</h2>
+    <div class="testimonials__grid">
+      @for (t of testimonials; track t.name) {
+        <div class="testimonials__card">
+          <div class="testimonials__stars">
+            @for (star of [1,2,3,4,5]; track star) {
+              <span class="star">&#9733;</span>
+            }
+          </div>
+          <p class="testimonials__quote">"{{ t.quote }}"</p>
+          <div class="testimonials__author">
+            <div class="testimonials__avatar">{{ t.initials }}</div>
+            <div>
+              <p class="testimonials__name">{{ t.name }}</p>
+              <p class="testimonials__company">{{ t.company }}</p>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
