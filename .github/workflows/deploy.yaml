@@ -29,7 +29,7 @@ jobs:
         run: npm run build -- --base-href=/<YOUR_REPOSITORY_NAME>/
 
       - name: Deploy to Github Pages
-        uses: angular-schule/angular-cli-ghpages@v2
+        uses: angular-schule/angular-cli-ghpages@v3
         with:
           # Use the built-in GITHUB_TOKEN or your custom secret (e.g., ${{ secrets.GH_TOKEN }})
           token: ${{ secrets.GITHUB_TOKEN }}
