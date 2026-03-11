@@ -1,11 +1,20 @@
-<section class="work" id="work">
+<section
+  class="work"
+  id="work">
   <div class="container">
     <h2 class="section-title">Examples of Work</h2>
     <div class="work__grid">
       @for (project of projects(); track project.title) {
-        <div class="work__card">
-          <div class="work__card-image" [style.background]="project.color">
-            <img [src]="project.mainImage" alt="" />
+        <div
+          class="work__card"
+          [routerLink]="['/projects', project.id]">
+          >
+          <div
+            class="work__card-image"
+            [style.background]="project.color">
+            <img
+              [src]="project.mainImage"
+              alt="" />
           </div>
           <div class="work__card-body">
             <h3 class="work__card-title">{{ project.title }}</h3>

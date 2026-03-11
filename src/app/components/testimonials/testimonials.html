@@ -2,7 +2,7 @@
   <div class="container">
     <h2 class="section-title">What clients and partners say</h2>
     <div class="testimonials__grid">
-      @for (t of testimonials(); track t.name) {
+      @for (t of testimonials(); track $index) {
         <div class="testimonials__card">
           <div class="testimonials__stars">
             @for (star of [1, 2, 3, 4, 5]; track star) {

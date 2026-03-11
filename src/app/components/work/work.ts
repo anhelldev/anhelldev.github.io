@@ -1,9 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { PROJECTS, ProjectData } from '../../data/projects.data';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-work',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './work.html',
   styleUrl: './work.scss',
 })

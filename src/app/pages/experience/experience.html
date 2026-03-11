@@ -2,16 +2,21 @@
   <div class="container">
     <div class="page-header">
       <p class="page-header__eyebrow">My journey</p>
-      <h1 class="page-header__title">Professional<br />Experience</h1>
+      <h1 class="page-header__title">
+        Professional
+        <br />
+        Experience
+      </h1>
       <p class="page-header__desc">
-        7+ years designing digital products and brands — from early-stage startups to established
-        teams.
+        7+ years of experience in software development, working with different companies, stacks and countries.
       </p>
     </div>
 
     <div class="timeline">
       @for (item of experiences(); track item.company) {
-        <div class="timeline__item" [class.timeline__item--current]="item.current">
+        <div
+          class="timeline__item"
+          [class.timeline__item--current]="item.current">
           <div class="timeline__marker">
             <div class="timeline__dot"></div>
             <div class="timeline__line"></div>
@@ -31,6 +36,17 @@
               </div>
             </div>
             <p class="timeline__desc">{{ item.description }}</p>
+            @if (item.mainFeatures?.length) {
+              <div class="timeline__responsibilities">
+                <p class="timeline__responsibilities-title">Main Responsibilities:</p>
+                <ul class="timeline__responsibilities-list">
+                  @for (feature of item.mainFeatures; track feature) {
+                    <li class="timeline__responsibility">{{ feature }}</li>
+                  }
+                </ul>
+              </div>
+            }
+
             <div class="timeline__skills">
               @for (skill of item.skills; track skill) {
                 <span class="tag">{{ skill }}</span>
