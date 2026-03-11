@@ -8,184 +8,201 @@ export interface ProjectData {
   year: string;
   role: string;
   duration: string;
-  challenge: string;
-  solution: string;
-  outcomes: { value: string; label: string }[];
-  process: { label: string; desc: string }[];
+  challenge?: string;
+  solution?: string;
+  mainFeatures?: string[];
+  mainImage?: string;
+  secondImage?: string;
+  thirdImage?: string;
+  fourthImage?: string;
+  process?: { label: string; desc: string }[];
+  outcomes?: { value: string; label: string }[];
+  link?: string;
+  projectUrl?: string;
+  projectUrlText?: string;
+  customImageStyles?: string;
+  isMobileApp?: boolean;
+  additionalVideo?: string;
+  additionalContainerClasses?: string;
+  noGallery?: boolean;
 }
 
 export const PROJECTS: ProjectData[] = [
   {
-    id: 'finova',
-    title: 'Finova',
-    subtitle: 'Banking App Redesign',
-    description:
-      'A full redesign of a consumer banking app serving 500k users. Focused on simplifying complex financial flows and improving accessibility scores by 40%.',
-    tags: ['Product Design', 'UX Research', 'Figma'],
-    color: '#dff0e8',
+    id: 'fluvip',
+    title: 'Fluvip',
+    subtitle: 'Influencer Marketing Platform Development',
+    description: `A Frontend Development of an influencer marketing platform for one of the biggest companies in Latin America. Focusing on building a new back 
+    office for the company to manage their influencers and campaigns, using the latest technologies and best practices. Using Angular 17, RxJS, GraphQL, Jest, and later updated to Angular 19, Signals and new ecosystem.`,
+    tags: [
+      'Angular',
+      'TypeScript',
+      'RxJS',
+      'GraphQL',
+      'Jest',
+      'Angular 19',
+      'Signals',
+      'Api Integration',
+      'Responsive Design',
+    ],
+    color: '#add9edff',
     year: '2024',
-    role: 'Lead Product Designer',
-    duration: '6 months',
-    challenge:
-      'Finova\'s legacy app had a 68% task-completion rate for core flows like transfers and bill pay — far below industry benchmarks. Users were dropping off during multi-step processes and accessibility scores were failing WCAG 2.1 AA standards.',
-    solution:
-      'We ran 3 rounds of usability testing with 60 participants to identify friction points, then rebuilt the entire information architecture. Complex flows were broken into single-purpose screens with clear progress indicators and contextual guidance throughout.',
-    outcomes: [
-      { value: '+40%', label: 'Accessibility score' },
-      { value: '94%', label: 'Task completion' },
-      { value: '−32%', label: 'Support tickets' },
-      { value: '4.8★', label: 'App store rating' },
+    role: 'Senior Frontend Developer',
+    duration: '2 years',
+    mainFeatures: [
+      'Architected, developed, and maintained scalable enterprise web applications using Angular 15+, applying modern frontend architecture patterns to ensure performance, maintainability, and long-term scalability.',
+      'Spearheaded Angular version migrations across legacy codebases, enhancing application security, optimizing performance, and reducing technical debt.',
+      'Partnered closely with designers, product managers, and backend teams to translate business requirements into seamless, high-quality UI/UX experiences.',
+      'Mentored and coached junior developers, promoting best practices in clean code, code reviews, performance optimization, and advanced Angular development techniques.',
     ],
-    process: [
-      { label: 'Discovery', desc: 'Stakeholder interviews, analytics review, competitive audit' },
-      { label: 'Research', desc: '3 rounds of usability testing with 60 participants' },
-      { label: 'IA & Flows', desc: 'Rebuilt information architecture and core user flows' },
-      { label: 'Design', desc: 'High-fidelity screens, component library, handoff' },
-    ],
+    mainImage: '/assets/projects/fluvip/main.png',
+    secondImage: '/assets/projects/fluvip/graphs.png',
+    thirdImage: '/assets/projects/fluvip/campaign.png',
+    fourthImage: '/assets/projects/fluvip/cart.png',
   },
   {
-    id: 'arkh',
-    title: 'Arkh',
-    subtitle: 'Design System',
-    description:
-      'Built a comprehensive multi-brand design system from scratch — 200+ components, full token architecture, and documentation adopted by 4 product teams.',
-    tags: ['Design Systems', 'Tokens', 'Documentation'],
-    color: '#e8e0f0',
-    year: '2023',
-    role: 'Design Systems Lead',
-    duration: '9 months',
-    challenge:
-      'Four product teams were building inconsistently, duplicating UI work, and shipping at different quality levels. There was no single source of truth for color, typography, or component patterns.',
-    solution:
-      'Designed and built Arkh — a multi-brand token system with 200+ Figma components mirrored in code. Worked directly with engineering to establish contribution workflows and documentation standards that teams actually use.',
-    outcomes: [
-      { value: '200+', label: 'Components' },
-      { value: '4', label: 'Teams adopted' },
-      { value: '−60%', label: 'Design-dev handoff time' },
-      { value: '100%', label: 'Brand consistency' },
+    id: 'armaan',
+    title: 'Next-2-Me',
+    subtitle: 'Single Page Application',
+    description: `
+      I was in charge of the full stack development of a single page application for the release of a song next-2-me by Armaan Malik. 
+      The primary challenge was developing an Instagram Story generation feature: 
+      users uploaded photos that the backend processed based on specific 
+      requirements—overlaying the song, a custom frame, and text—to return a 
+      personalized image for social sharing. You can see the impact of this website in X under the hashtag #WishYouWereNext2Me.
+
+      `,
+    mainFeatures: [
+      'Developed a single page application for the release of a song next-2-me by Armaan Malik.',
+      'Transformed the initial concept and design into a fully functional web application using HTML, CSS, JavaScript, Node.js, and Express.',
+      'Implemented an Instagram Story generator feature that allowed users to upload photos and receive personalized images with the song overlayed and a custom frame.',
     ],
-    process: [
-      { label: 'Audit', desc: 'Catalogued 400+ existing UI patterns across 4 products' },
-      { label: 'Tokens', desc: 'Built multi-brand token architecture for color, type, spacing' },
-      { label: 'Components', desc: 'Designed 200+ Figma components with full variant coverage' },
-      { label: 'Docs', desc: 'Usage guidelines, contribution workflow, changelog' },
-    ],
-  },
-  {
-    id: 'bloom',
-    title: 'Bloom',
-    subtitle: 'Health & Wellness Platform',
-    description: 'End-to-end product design for a habit-tracking and coaching app.',
-    tags: ['UI Design', 'Mobile', 'Branding'],
-    color: '#f0e8df',
-    year: '2023',
-    role: 'Product Designer',
-    duration: '4 months',
-    challenge:
-      'Bloom needed a mobile-first experience that felt warm and motivating — not clinical. Previous versions of the app had high churn after day 7 because the habit system felt rigid and punishing.',
-    solution:
-      'Redesigned around a flexible habit model with streak-repair mechanics and a celebration-first approach. Built a warm visual identity with soft gradients and custom illustration guidelines to differentiate from sterile wellness apps.',
-    outcomes: [
-      { value: '+55%', label: 'Day-30 retention' },
-      { value: '−40%', label: 'Day-7 churn' },
-      { value: '4.7★', label: 'App store rating' },
-      { value: '2×', label: 'Session length' },
-    ],
-    process: [
-      { label: 'Brand', desc: 'Visual identity, color system, custom illustration style' },
-      { label: 'UX', desc: 'Habit model redesign, onboarding, progress mechanics' },
-      { label: 'UI', desc: 'Mobile-first screens for iOS and Android' },
-      { label: 'Test', desc: 'Beta testing with 200 users, 2 iteration rounds' },
-    ],
-  },
-  {
-    id: 'nord',
-    title: 'Nord',
-    subtitle: 'E-commerce Rebrand',
-    description: 'Full visual identity refresh including packaging, web, and marketing.',
-    tags: ['Branding', 'Art Direction', 'Web'],
-    color: '#dfe8f0',
-    year: '2022',
-    role: 'Art Director',
-    duration: '3 months',
-    challenge:
-      'Nord\'s existing brand felt dated and generic — indistinguishable from competitors. They were losing ground to newer DTC brands with stronger visual identities and needed a complete overhaul before a major product launch.',
-    solution:
-      'Developed a refined Scandinavian-minimalist identity system: restrained palette, editorial typography, and a modular grid that works across packaging, web, and social. Directed a 2-day photo shoot to create the hero imagery.',
-    outcomes: [
-      { value: '+28%', label: 'Conversion rate' },
-      { value: '3×', label: 'Social engagement' },
-      { value: '12', label: 'Press mentions' },
-      { value: '100%', label: 'Brand refresh scope' },
-    ],
-    process: [
-      { label: 'Strategy', desc: 'Brand positioning, competitor mapping, audience research' },
-      { label: 'Identity', desc: 'Logotype, color palette, typography system' },
-      { label: 'Shoot', desc: 'Art directed 2-day product photography shoot' },
-      { label: 'Launch', desc: 'Web, packaging, social templates, brand guidelines' },
-    ],
-  },
-  {
-    id: 'pulse',
-    title: 'Pulse',
-    subtitle: 'SaaS Analytics Dashboard',
-    description: 'Data-heavy dashboard design with a focus on clarity and usability.',
-    tags: ['UI Design', 'Data Viz', 'Prototyping'],
-    color: '#f0f0df',
-    year: '2022',
-    role: 'UI/UX Designer',
-    duration: '5 months',
-    challenge:
-      'Pulse\'s power users were spending too long hunting for key metrics across a fragmented dashboard. The visualisation choices were inconsistent and often misleading, eroding trust in the product.',
-    solution:
-      'Designed a customisable dashboard system with a strict chart taxonomy — each data type maps to one chart type. Built a drag-and-drop widget system so users can create the view that matters to them.',
-    outcomes: [
-      { value: '−45%', label: 'Time to insight' },
-      { value: '+33%', label: 'Feature adoption' },
-      { value: '98%', label: 'User satisfaction' },
-      { value: '6×', label: 'Dashboard templates' },
-    ],
-    process: [
-      { label: 'Audit', desc: 'Heuristic evaluation, user interviews with 20 power users' },
-      { label: 'Taxonomy', desc: 'Data visualisation standards and chart decision tree' },
-      { label: 'Design', desc: 'Widget library, layout system, responsive breakpoints' },
-      { label: 'Prototype', desc: 'Interactive prototype tested with 30 users' },
-    ],
-  },
-  {
-    id: 'cora',
-    title: 'Cora',
-    subtitle: 'Social Campaign',
-    description: 'Art direction and motion guidelines for a global social media campaign.',
-    tags: ['Art Direction', 'Motion', 'Social'],
-    color: '#f0dfdf',
-    year: '2021',
-    role: 'Art Director',
+    tags: ['Html', 'Javascript', 'Css', 'NodeJs', 'GIMP', 'Express'],
+    color: '#eadff5ff',
+    year: '2020',
+    role: 'Full Stack Developer',
     duration: '2 months',
-    challenge:
-      'Cora needed a campaign that would work across 12 markets simultaneously, with local teams adapting assets without losing visual coherence or diluting the brand message.',
-    solution:
-      'Created a modular campaign system: a core visual language with defined variables (color themes, type lockups, motion principles) that local teams could swap out for localisation while keeping the campaign instantly recognisable.',
-    outcomes: [
-      { value: '12', label: 'Markets launched' },
-      { value: '4.2M', label: 'Impressions' },
-      { value: '+180%', label: 'Engagement vs prior' },
-      { value: '3', label: 'Industry awards' },
+    mainImage: '/assets/projects/armaan/armaan.gif',
+    secondImage: '/assets/projects/armaan/home.png',
+    thirdImage: '/assets/projects/armaan/home2.png',
+    fourthImage: '/assets/projects/armaan/home3.png',
+    projectUrl: 'https://web.archive.org/web/20201101005328/http://next-2.me/#section-2',
+    projectUrlText: 'Next-2-Me web.archive.',
+    additionalVideo: '/assets/projects/armaan/armaan-work.mp4',
+    additionalContainerClasses: 'video-promotional',
+  },
+  {
+    id: 'quik',
+    title: 'Quik',
+    subtitle: 'Delivery and Ride Sharing Platform',
+    description:
+      'As Lead Developer, I spearheaded the development and launch of two core Flutter mobile applications, including the integration of the Quik Go ridesharing module. I drove technical excellence by optimizing state management and refactoring legacy algorithms for better scalability, while overseeing code quality across Flutter and Angular teams through rigorous code reviews. Beyond mobile development, I collaborated closely with product owners to define technical roadmaps, managed the end-to-end deployment process to the App Store and Google Play, and extended platform capabilities by developing backend features with Node.js and Firebase Cloud Functions.',
+    tags: [
+      'Angular',
+      'Flutter',
+      'Firebase',
+      'NodeJs',
+      'Express',
+      'MongoDB',
+      'NestJs',
+      'GCP',
+      'FCM',
+      'Stripe',
+      'Api Integration',
     ],
-    process: [
-      { label: 'Concept', desc: 'Campaign concept, mood boards, visual language definition' },
-      { label: 'Templates', desc: 'Modular asset system for 8 formats across 4 platforms' },
-      { label: 'Motion', desc: 'Animation principles and motion templates in After Effects' },
-      { label: 'Handoff', desc: 'Brand guide for local market teams with usage examples' },
+    color: '#ead0fcff',
+    year: '2023',
+    role: 'Full Stack Developer',
+    duration: '2 years',
+    mainImage: '/assets/projects/quik/quik.png',
+    mainFeatures: [
+      `Led development of two core Flutter mobile applications, owning the implementation of key features, new user
+interfaces, and the launch of Quik Go, a ridesharing functionality integrated into the main platform.`,
+      `Improved application performance and scalability by optimizing state management and refactoring legacy
+algorithms for greater efficiency and maintainability.`,
+      `Conducted thorough code reviews, validated pull requests, and supervised commits from Flutter and Angular
+teams to ensure high code quality and consistency.`,
+      `Collaborated with the product owner to analyze requirements, define technical solutions, and provide accurate
+time estimations for new features.`,
+      `Resolved cross-platform issues, managed build processes, and configured iOS project deployments, publishing
+applications to the App Store and Google Play.`,
+      `Developed backend features using Firebase Cloud Functions with Node.js and Express, extending platform
+capabilities and supporting mobile app integrations.`,
     ],
+    secondImage: '/assets/projects/quik/quik4.jpeg',
+    thirdImage: '/assets/projects/quik/quik2.jpeg',
+    isMobileApp: true,
+    customImageStyles: 'border-radius: 20px;',
+  },
+  {
+    id: 'blackcab',
+    title: 'Black Cab',
+    subtitle: 'Website for a Marketing Agency',
+    description:
+      'Full development for Marketing Agency Black Cab in the India. Using Smooth Animations with GSAP and ScrollTrigger. A challenging project that helped me improve my animation skills.',
+    tags: ['Html', 'Css', 'Javascript', 'GSAP', 'ScrollTrigger'],
+    color: '#dfe8f0',
+    year: '2020',
+    role: 'Full Stack Developer',
+    duration: '3 months',
+    mainFeatures: [
+      'Developed a single page application for the leading marketing agency in India.',
+      'Transformed the initial concept and design into a fully functional web application using HTML, CSS, JavaScript, and GSAP.',
+      'Implemented smooth animations using GSAP and ScrollTrigger.',
+    ],
+    projectUrl: 'https://web.archive.org/web/20240913132657/https://blackcab.co.in/',
+    projectUrlText: 'Black Cab Web Archive old Version',
+    mainImage: '/assets/projects/blackcab/black-cab.gif',
+    secondImage: '/assets/projects/blackcab/blackcab-2.png',
+    thirdImage: '/assets/projects/blackcab/blackcab-3.png',
+    fourthImage: '/assets/projects/blackcab/blackcab-4.png',
+  },
+  {
+    id: 'timeline-component',
+    title: 'Vertical TimeLine Component',
+    subtitle: 'Vertical TimeLine Component for Angular',
+    description:
+      'Create a reusable vertical timeline component for Angular. Using Custom CSS and TypeScript.',
+    tags: ['Angular', 'TypeScript', 'CSS'],
+    color: '#edd5d1ff',
+    year: '2026',
+    role: 'Creator',
+    duration: '1 week',
+    mainFeatures: [
+      'Create a reusable vertical timeline component for Angular.',
+      'Publish the component to NPM.',
+      'Update the component with new features and bug fixes.',
+    ],
+    projectUrl: 'https://www.npmjs.com/package/ng-vertical-timeline-component',
+    projectUrlText: 'Vertical TimeLine Component npm package',
+    mainImage: '/assets/projects/timeline/main.png',
+    noGallery: true,
+  },
+  {
+    id: 'turnno',
+    title: 'TurnNo',
+    subtitle: 'Mobile App for Taking turns in board games.',
+    description:
+      'TurnNo is a mobile application that helps you keep track of whose turn it is in board games. is a personal project that is in development, guided by my love for board games and development.',
+    tags: ['Flutter', 'Firebase', 'FCM'],
+    mainFeatures: [
+      'Flutter app created from scratch using ia Agent to help in the development.',
+      'Creation of different ways to take the initial turn for a board game sesion.',
+    ],
+    color: '#f0efdfff',
+    year: '2026',
+    role: 'Creator',
+    duration: '2 months',
+    mainImage: '/assets/projects/turnNo/TurnNo.webp',
+    noGallery: true,
   },
 ];
 
 export function getProjectById(id: string): ProjectData | undefined {
-  return PROJECTS.find(p => p.id === id);
+  return PROJECTS.find((p) => p.id === id);
 }
 
 export function getNextProject(id: string): ProjectData | undefined {
-  const idx = PROJECTS.findIndex(p => p.id === id);
+  const idx = PROJECTS.findIndex((p) => p.id === id);
   return PROJECTS[(idx + 1) % PROJECTS.length];
 }

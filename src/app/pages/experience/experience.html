@@ -1,16 +1,16 @@
 <div class="page">
   <div class="container">
-
     <div class="page-header">
       <p class="page-header__eyebrow">My journey</p>
-      <h1 class="page-header__title">Professional<br>Experience</h1>
+      <h1 class="page-header__title">Professional<br />Experience</h1>
       <p class="page-header__desc">
-        7+ years designing digital products and brands — from early-stage startups to established teams.
+        7+ years designing digital products and brands — from early-stage startups to established
+        teams.
       </p>
     </div>
 
     <div class="timeline">
-      @for (item of experiences; track item.company) {
+      @for (item of experiences(); track item.company) {
         <div class="timeline__item" [class.timeline__item--current]="item.current">
           <div class="timeline__marker">
             <div class="timeline__dot"></div>
@@ -40,6 +40,5 @@
         </div>
       }
     </div>
-
   </div>
 </div>

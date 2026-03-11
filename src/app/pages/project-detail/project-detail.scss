@@ -20,7 +20,9 @@
   opacity: 0.7;
   transition: opacity 0.2s;
 
-  &:hover { opacity: 1; }
+  &:hover {
+    opacity: 1;
+  }
 }
 
 .hero__content {
@@ -102,10 +104,20 @@
 
   &__frame {
     width: 100%;
-    height: 480px;
+    height: 520px;
     border-radius: 20px;
-    opacity: 0.5;
-    background: rgba(0,0,0,0.06) !important;
+    background: rgba(0, 0, 0, 0.06) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
   }
 }
 
@@ -144,6 +156,17 @@
     line-height: 1.7;
     color: #333;
     font-weight: 400;
+  }
+}
+
+.project-url {
+  display: flex;
+  padding-top: 40px;
+  & a {
+    margin-left: 8px;
+    font-size: 16px;
+    text-decoration: underline;
+    color: #1518a6;
   }
 }
 
@@ -205,10 +228,22 @@
   gap: 16px;
   margin-top: 32px;
 
+  &_phone {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
   &__main {
-    height: 360px;
+    height: 420px;
     border-radius: 16px;
-    opacity: 0.45;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
   &__side {
@@ -220,7 +255,14 @@
   &__sm {
     flex: 1;
     border-radius: 16px;
-    opacity: 0.3;
+    max-height: 210px;
+    overflow: hidden;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
   }
 }
 
@@ -264,7 +306,9 @@
   padding: 72px 0;
   transition: filter 0.2s;
 
-  &:hover { filter: brightness(0.97); }
+  &:hover {
+    filter: brightness(0.97);
+  }
 
   .container {
     max-width: 1200px;
@@ -305,7 +349,7 @@
   &__arrow {
     width: 72px;
     height: 72px;
-    background: rgba(45,45,45,0.08);
+    background: rgba(45, 45, 45, 0.08);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -315,7 +359,7 @@
   }
 
   &:hover &__arrow {
-    background: rgba(45,45,45,0.15);
+    background: rgba(45, 45, 45, 0.15);
   }
 }
 
@@ -325,34 +369,81 @@
   font-weight: 600;
   padding: 6px 14px;
   border-radius: 100px;
-  background: rgba(45,45,45,0.1);
+  background: rgba(45, 45, 45, 0.1);
   color: #2d2d2d;
 }
 
 // Responsive
 @media (max-width: 900px) {
-  .hero__title { font-size: 48px; letter-spacing: -2px; }
-  .hero__content { align-items: flex-start; flex-direction: column; }
-  .hero__meta { flex-direction: row; flex-wrap: wrap; gap: 24px 48px; }
-  .two-col { grid-template-columns: 1fr; gap: 48px; }
-  .process__grid { grid-template-columns: repeat(2, 1fr); }
-  .outcomes__grid { grid-template-columns: repeat(2, 1fr); }
-  .gallery { grid-template-columns: 1fr; }
-  .gallery__side { flex-direction: row; }
-  .gallery__sm { height: 160px; }
-  .next-project__title { font-size: 36px; }
+  .hero__title {
+    font-size: 48px;
+    letter-spacing: -2px;
+  }
+  .hero__content {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .hero__meta {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px 48px;
+  }
+  .two-col {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .process__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .outcomes__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+  .gallery__side {
+    flex-direction: row;
+  }
+  .gallery__sm {
+    height: 160px;
+  }
+  .next-project__title {
+    font-size: 36px;
+  }
 }
 
 @media (max-width: 600px) {
-  .hero__title { font-size: 36px; }
-  .process__grid { grid-template-columns: 1fr; }
-  .outcomes__grid { grid-template-columns: 1fr; }
-  .hero-image__frame { height: 240px; }
+  .hero__title {
+    font-size: 36px;
+  }
+  .process__grid {
+    grid-template-columns: 1fr;
+  }
+  .outcomes__grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-image__frame {
+    height: 240px;
+  }
 
   .hero .container,
   .hero-image .container,
   .page-body .container,
   .next-project .container {
     padding: 0 20px;
+  }
+}
+
+section {
+  padding: 60px 0;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  section {
+    padding: 40px 0;
   }
 }

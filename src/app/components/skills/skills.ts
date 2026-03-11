@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
@@ -10,11 +10,13 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 export class Skills {
   private sanitizer = inject(DomSanitizer);
 
-  skills: { title: string; description: string; icon: SafeHtml }[] = [
+  skills = signal<{ title: string; description: string; icon: SafeHtml }[]>([
     {
-      title: 'Product Design',
-      description: 'End-to-end product design from wireframes to polished, developer-ready UI that solves real user problems.',
-      icon: this.sanitizer.bypassSecurityTrustHtml(`<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      title: 'Product Development',
+      description:
+        'Crafting reactive and scalable web applications with Angular, React, and Vue. Specialized in building seamless cross-platform mobile experiences using Flutter.',
+      icon: this.sanitizer
+        .bypassSecurityTrustHtml(`<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="8" y="8" width="48" height="48" rx="8" stroke="#2d2d2d" stroke-width="3"/>
         <circle cx="32" cy="32" r="10" stroke="#2d2d2d" stroke-width="3"/>
         <line x1="32" y1="8" x2="32" y2="22" stroke="#2d2d2d" stroke-width="3" stroke-linecap="round"/>
@@ -24,20 +26,23 @@ export class Skills {
       </svg>`),
     },
     {
-      title: 'Visual Design',
-      description: 'Crafting compelling visual systems, typography hierarchies, and color palettes that resonate with your audience.',
-      icon: this.sanitizer.bypassSecurityTrustHtml(`<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      title: 'Front End Skills',
+      description:
+        'Building web solutions since 2018, from lightweight landing pages to robust corporate software. Focused on delivering high-quality, scalable code powered by the JavaScript ecosystem.',
+      icon: this.sanitizer
+        .bypassSecurityTrustHtml(`<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M32 8 L56 48 H8 Z" stroke="#2d2d2d" stroke-width="3" stroke-linejoin="round"/>
         <circle cx="32" cy="38" r="6" fill="#2d2d2d"/>
       </svg>`),
     },
     {
-      title: 'Art Direction',
-      description: 'Guiding creative vision across campaigns and brand touchpoints to build a cohesive, memorable identity.',
-      icon: this.sanitizer.bypassSecurityTrustHtml(`<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      title: 'Using Ai as a collaborator',
+      description: `Embracing the future of AI-driven development. I integrate AI as a core collaborator in my workflow to optimize efficiency, automate tasks, and deliver smarter software solutions.`,
+      icon: this.sanitizer
+        .bypassSecurityTrustHtml(`<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="32" cy="32" r="24" stroke="#2d2d2d" stroke-width="3"/>
         <path d="M20 32 Q26 20 32 32 Q38 44 44 32" stroke="#2d2d2d" stroke-width="3" stroke-linecap="round" fill="none"/>
       </svg>`),
     },
-  ];
+  ]);
 }

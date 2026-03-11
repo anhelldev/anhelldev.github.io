@@ -1,19 +1,25 @@
 <div class="page">
   <div class="container">
-
     <div class="page-header">
       <p class="page-header__eyebrow">Selected work</p>
-      <h1 class="page-header__title">Portfolio<br>Projects</h1>
+      <h1 class="page-header__title">Portfolio<br />Projects</h1>
       <p class="page-header__desc">
-        A selection of projects spanning product design, brand identity, and design systems.
+        A selection of projects showcasing my development skills, featuring both corporate and
+        personal work.
       </p>
     </div>
 
     <!-- Featured (large) cards -->
     <div class="featured-grid">
-      @for (project of featured; track project.id) {
-        <a class="featured-card" [style.background]="project.color" [routerLink]="['/projects', project.id]">
-          <div class="featured-card__image"></div>
+      @for (project of featured(); track project.id) {
+        <a
+          class="featured-card"
+          [style.background]="project.color"
+          [routerLink]="['/projects', project.id]"
+        >
+          <div class="featured-card__image">
+            <img [src]="project.mainImage" />
+          </div>
           <div class="featured-card__body">
             <span class="featured-card__year">{{ project.year }}</span>
             <h2 class="featured-card__title">{{ project.title }} — {{ project.subtitle }}</h2>
@@ -29,11 +35,14 @@
     </div>
 
     <!-- Regular grid -->
-    <h2 class="grid-label">More projects</h2>
+    <!-- <h2 class="grid-label">More projects</h2>
     <div class="projects-grid">
-      @for (project of projects; track project.id) {
+      @for (project of projects(); track project.id) {
         <a class="project-card" [routerLink]="['/projects', project.id]">
-          <div class="project-card__image" [style.background]="project.color"></div>
+          <div class="project-card__image" [style.background]="project.color">
+                        <img [src]="project.mainImage" />
+
+          </div>
           <div class="project-card__body">
             <div class="project-card__top">
               <h3 class="project-card__title">{{ project.title }} — {{ project.subtitle }}</h3>
@@ -48,7 +57,6 @@
           </div>
         </a>
       }
-    </div>
-
+    </div> -->
   </div>
 </div>

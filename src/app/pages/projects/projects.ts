@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { PROJECTS, ProjectData } from '../../data/projects.data';
 
@@ -9,6 +9,6 @@ import { PROJECTS, ProjectData } from '../../data/projects.data';
   styleUrl: './projects.scss',
 })
 export class Projects {
-  featured: ProjectData[] = PROJECTS.slice(0, 2);
-  projects: ProjectData[] = PROJECTS.slice(2);
+  featured = signal<ProjectData[]>(PROJECTS);
+  projects = signal<ProjectData[]>(PROJECTS.slice(2));
 }

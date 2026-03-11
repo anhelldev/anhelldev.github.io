@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 interface ExperienceItem {
   role: string;
@@ -17,7 +17,7 @@ interface ExperienceItem {
   styleUrl: './experience.scss',
 })
 export class Experience {
-  experiences: ExperienceItem[] = [
+  experiences = signal<ExperienceItem[]>([
     {
       role: 'Senior Visual Designer',
       company: 'Acme Studio',
@@ -55,5 +55,5 @@ export class Experience {
         'Started as a generalist covering print, social media, and early digital product work. Grew into a focused product design role within the first year.',
       skills: ['Visual Design', 'Typography', 'Adobe CC', 'Branding'],
     },
-  ];
+  ]);
 }

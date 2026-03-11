@@ -1,13 +1,19 @@
 <section class="work" id="work">
   <div class="container">
-    <h2 class="section-title">Latest Work</h2>
+    <h2 class="section-title">Examples of Work</h2>
     <div class="work__grid">
-      @for (project of projects; track project.title) {
+      @for (project of projects(); track project.title) {
         <div class="work__card">
-          <div class="work__card-image" [style.background]="project.color"></div>
+          <div class="work__card-image" [style.background]="project.color">
+            <img [src]="project.mainImage" alt="" />
+          </div>
           <div class="work__card-body">
             <h3 class="work__card-title">{{ project.title }}</h3>
-            <p class="work__card-tags">{{ project.tags }}</p>
+            <div class="hero__tags">
+              @for (tag of project.tags; track tag) {
+                <span class="tag">{{ tag }}</span>
+              }
+            </div>
           </div>
         </div>
       }
