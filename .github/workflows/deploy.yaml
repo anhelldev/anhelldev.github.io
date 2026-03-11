@@ -1,0 +1,37 @@
+name: Build & Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Triggers the workflow on pushes to the main branch
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the source code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: latest
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci # Use npm ci for clean installs in CI environments
+
+      - name: Build application
+        # Replace <YOUR_REPOSITORY_NAME> with your actual repository name
+        run: npm run build -- --base-href=/<YOUR_REPOSITORY_NAME>/
+
+      - name: Deploy to Github Pages
+        uses: angular-schule/angular-cli-ghpages@v2
+        with:
+          # Use the built-in GITHUB_TOKEN or your custom secret (e.g., ${{ secrets.GH_TOKEN }})
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # The directory containing the built files (might be 'dist/your-app-name/browser' in newer Angular versions)
+          dir: dist/<YOUR_REPOSITORY_NAME>/browser
