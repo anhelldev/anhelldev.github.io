@@ -1,0 +1,44 @@
+{
+  "printWidth": 120,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": true,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "bracketSpacing": true,
+  "bracketSameLine": false,
+  "arrowParens": "always",
+  "endOfLine": "lf",
+  "overrides": [
+    {
+      "files": [
+        "*.html"
+      ],
+      "options": {
+        "parser": "angular",
+        "printWidth": 120,
+        "singleAttributePerLine": true,
+        "bracketSameLine": true,
+        "htmlWhitespaceSensitivity": "ignore"
+      }
+    },
+    {
+      "files": [
+        "*.md"
+      ],
+      "options": {
+        "proseWrap": "preserve"
+      }
+    },
+    {
+      "files": [
+        "*.json"
+      ],
+      "options": {
+        "singleQuote": false,
+        "trailingComma": "none",
+        "tabWidth": 2
+      }
+    }
+  ]
+}

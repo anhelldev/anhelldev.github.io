@@ -1,0 +1,15 @@
+# Add files here to ignore them from prettier formatting
+/dist
+/coverage
+/.angular
+/.nx
+/.vscode
+/node_modules
+
+# generated files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Assets
+/src/assets
